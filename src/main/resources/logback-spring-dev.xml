@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+
+
+    <substitutionProperty name="log.base" value="${catalina.base}/logs"/>
+
+    <!--配置控制台日志输出格式-->
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%date [%thread]|[%X{user}][%-5level %logger{30}] %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <!--配置info信息输出到一个文件-->
+    <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--根据级别过滤掉匹配的日志，不输出error级别的日志-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <!--匹配上ERROR级别的日志信息，则不会输出到该文件中-->
+            <onMatch>DENY</onMatch>
+            <!--匹配不上ERROR级别的日志信息，则输出到该文件中-->
+            <onMismatch>ACCEPT</onMismatch>
+            <!--这样过滤以后，该文件中只会输出info级别的日志信息-->
+        </filter>
+        <!--日志输出格式，同上-->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%date [%thread]|[%X{user}][%-5level%logger{30}] %msg%n</pattern>
+        </encoder>
+
+        <file>${log.base}/default.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.base}/default.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 如果按天来回滚，则最大保存时间为1天，1天之前的都将被清理掉 -->
+            <maxHistory>1</maxHistory>
+            <!-- 按时间回滚的同时，按文件大小来回滚 -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <!--配置error信息输出到一个文件-->
+    <appender name="fileErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--根据范围过滤日志，只输出error级别的日志-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <!--日志输出格式-->
+        <!--日志输出格式，同上-->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%date [%thread]|[%X{user}][%-5level%logger{30}] %msg%n</pattern>
+        </encoder>
+
+        <file>${log.base}/default.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.base}/default.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 如果按天来回滚，则最大保存时间为1天，1天之前的都将被清理掉 -->
+            <maxHistory>1</maxHistory>
+            <!-- 按时间回滚的同时，按文件大小来回滚 -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="consoleLog"/>
+        <appender-ref ref="fileInfoLog"/>
+        <appender-ref ref="fileErrorLog"/>
+    </root>
+</configuration>

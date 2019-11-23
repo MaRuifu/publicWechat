@@ -1,0 +1,18 @@
+server:
+  port: 8080
+#  servlet:
+#    context-path: /wechat
+
+spring:
+  datasource:
+    username: root
+    password: Mrf12345
+    url: jdbc:mysql://maruifu.cn:3306/wechat?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+
+#set logback
+logging:
+  config:
+    classpath: logback-spring-dev.xml
+
+
