@@ -6,7 +6,7 @@ server:
 
 spring:
   datasource:
-    name: mysql_test
+    name: wechat
     type: com.alibaba.druid.pool.DruidDataSource
     #druid相关配置
     druid:
