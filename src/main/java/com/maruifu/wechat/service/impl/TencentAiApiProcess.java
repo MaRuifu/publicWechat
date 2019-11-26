@@ -2,6 +2,7 @@ package com.maruifu.wechat.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.maruifu.wechat.pojo.dmo.base.Respost;
 import com.maruifu.wechat.util.HTTPClientUtils;
 import com.maruifu.wechat.util.HttpUtil;
 import com.maruifu.wechat.util.Sign;
@@ -38,15 +39,16 @@ public class TencentAiApiProcess {
      */
     public String getTencentAiResult(String content){
 
-        String a = null;
+        String resp = null;
         try {
-            a = HttpUtil.get(url, Sign.getSignature(Sign.getKeybyvalue(content), "2RtEHaOZgmKHapvW"));
+            resp = HttpUtil.get(url, Sign.getSignature(Sign.getKeybyvalue(content), "2RtEHaOZgmKHapvW"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        JSONObject jsonObject = JSONObject.parseObject(a);
+        JSONObject jsonObject = JSONObject.parseObject(resp);
+        Respost respost =  jsonObject.toJavaObject(jsonObject, Respost.class);
+        logger.info("resp",resp);
 
-        logger.info("a",a);
-        return a;
+        return respost.getAnswer();
     }
 }
