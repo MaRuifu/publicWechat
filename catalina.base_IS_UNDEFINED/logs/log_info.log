@@ -79,3 +79,5 @@ Error starting ApplicationContext. To display the conditions report re-run your 
 2019-11-26 23:25:49.438 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 9 ms
 2019-11-26 23:25:49.536 [http-nio-8080-exec-2] INFO  com.maruifu.wechat.controller.UserController - 查询用户1
 2019-11-26 23:26:10.018 [http-nio-8080-exec-2] INFO  c.maruifu.wechat.service.impl.TencentAiApiProcess - a
+2019-11-26 23:26:52.192 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-11-26 23:26:52.201 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
