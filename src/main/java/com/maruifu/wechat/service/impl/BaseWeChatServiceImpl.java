@@ -56,7 +56,8 @@ public class BaseWeChatServiceImpl implements BaseWeChatService {
             if (msgType.equals(WeChatContant.MESSAGE_TYPE_TEXT)) {
 
 
-                respXml=  MessageUtil.sendTextMsg(requestMap,new TulingApiProcess().getTulingResult(requestMap.get(WeChatContant.Content)));
+//                respXml=  MessageUtil.sendTextMsg(requestMap,new TulingApiProcess().getTulingResult(requestMap.get(WeChatContant.Content)));
+                respXml=  MessageUtil.sendTextMsg(requestMap,new TencentAiApiProcess().getTencentAiResult(requestMap.get(WeChatContant.Content)));
 
             }
             // 图片消息
