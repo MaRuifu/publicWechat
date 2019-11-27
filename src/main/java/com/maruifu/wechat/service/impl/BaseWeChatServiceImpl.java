@@ -37,9 +37,7 @@ public class BaseWeChatServiceImpl implements BaseWeChatService {
 
     @Override
     public String processRequest(HttpServletRequest request) {
-
-
-        logger.info("wx request {}", request);
+ 
         // xml格式的消息数据
         String respXml = "";
         // 默认返回的文本消息内容

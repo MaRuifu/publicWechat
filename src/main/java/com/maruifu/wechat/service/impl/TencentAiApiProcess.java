@@ -42,12 +42,13 @@ public class TencentAiApiProcess {
         String resp = null;
         try {
             resp = HttpUtil.get(url, Sign.getSignature(Sign.getKeybyvalue(content), "2RtEHaOZgmKHapvW"));
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            logger.error("调用腾讯基础闲聊api接口失败!",e);
+            return "对不起，你说的话真是太高深了……";
         }
         JSONObject jsonObject = JSONObject.parseObject(resp);
         Respost respost =  jsonObject.toJavaObject(jsonObject, Respost.class);
-        logger.info("resp",resp);
+        logger.info("ResponseMap>>> {}",respost);
 
         return respost.getAnswer();
     }
