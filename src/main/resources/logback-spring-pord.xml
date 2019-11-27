@@ -177,18 +177,15 @@
     -->
 
     <!--开发环境:打印控制台-->
-    <springProfile name="prod">
-        <logger name="com.maruifu.wechat" level="INFO"/>
+    <springProfile name="pord">
+        <logger name="com.maruifu.wechat" level="info"/>
     </springProfile>
 
-
-
-    <root level="info">
+    <root level="debug">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="DEBUG_FILE" />
         <appender-ref ref="INFO_FILE" />
         <appender-ref ref="WARN_FILE" />
         <appender-ref ref="ERROR_FILE" />
     </root>
-
 </configuration>
