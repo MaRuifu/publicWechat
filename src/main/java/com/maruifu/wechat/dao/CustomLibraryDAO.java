@@ -69,11 +69,6 @@ public interface CustomLibraryDAO {
     "select sentence_valus from custom_library",
     "where sentence_key = #{sentenceKey,jdbcType=VARCHAR}  order by rand() limit 1"
     })
-    @Results({
-    @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
-    @Result(column="sentence_key", property="sentenceKey", jdbcType=JdbcType.VARCHAR),
-    @Result(column="sentence_valus", property="sentenceValus", jdbcType=JdbcType.INTEGER)
-    })
     String selectBySentenceKey(String sentenceKey);
 
     /** 
