@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.maruifu.wechat.dao.CustomLibraryDAO;
 import com.maruifu.wechat.pojo.dmo.base.Respost;
+import com.maruifu.wechat.service.BaseWeChatService;
+import com.maruifu.wechat.service.TencentAiApiProcess;
 import com.maruifu.wechat.util.HTTPClientUtils;
 import com.maruifu.wechat.util.HttpUtil;
 import com.maruifu.wechat.util.Sign;
@@ -27,9 +29,9 @@ import java.io.IOException;
 
 
 @Scope("singleton")
-@Service("tencentAiApiProcess")
-public class TencentAiApiProcess {
-    static Logger logger = LoggerFactory.getLogger(TencentAiApiProcess.class);
+@Service("tencentAiApiProcessImpl")
+public class TencentAiApiProcessImpl implements TencentAiApiProcess {
+    static Logger logger = LoggerFactory.getLogger(TencentAiApiProcessImpl.class);
 
 
 
@@ -42,6 +44,7 @@ public class TencentAiApiProcess {
      * @param content
      * @return
      */
+    @Override
     public String getTencentAiResult(String content){
 
 

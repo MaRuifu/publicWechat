@@ -35,8 +35,8 @@ import org.springframework.stereotype.Service;
  */
 @Scope("singleton")
 @Service("tulingApiProcess")
-public class TulingApiProcess {
-    static Logger logger = LoggerFactory.getLogger(TulingApiProcess.class);
+public class TulingApiProcessImpl {
+    static Logger logger = LoggerFactory.getLogger(TulingApiProcessImpl.class);
 
     /**
      * 调用图灵机器人api接口，获取智能回复内容，解析获取自己所需结果
