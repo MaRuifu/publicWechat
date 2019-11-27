@@ -144,6 +144,12 @@
         </filter>
     </appender>
 
+
+    <!--打印SQL-->
+    <logger name="java.sql.Connection" level="DEBUG" />
+    <logger name="java.sql.Statement" level="DEBUG" />
+    <logger name="java.sql.PreparedStatement" level="DEBUG" />
+    <logger name="org.mybatis" level="DEBUG"/>
     <!--
         <logger>用来设置某一个包或者具体的某一个类的日志打印级别、
         以及指定<appender>。<logger>仅有一个name属性，
@@ -171,27 +177,18 @@
     -->
 
     <!--开发环境:打印控制台-->
-    <springProfile name="dev">
-        <logger name="com.nmys.view" level="debug"/>
+    <springProfile name="prod">
+        <logger name="com.maruifu.wechat" level="debug"/>
     </springProfile>
 
+
+
     <root level="info">
-        <!--<appender-ref ref="CONSOLE" />-->
-        <!--<appender-ref ref="DEBUG_FILE" />-->
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="DEBUG_FILE" />
         <appender-ref ref="INFO_FILE" />
-        <!--<appender-ref ref="WARN_FILE" />-->
+        <appender-ref ref="WARN_FILE" />
         <appender-ref ref="ERROR_FILE" />
     </root>
-
-    <!--生产环境:输出到文件-->
-    <!--<springProfile name="pro">-->
-    <!--<root level="info">-->
-    <!--<appender-ref ref="CONSOLE" />-->
-    <!--<appender-ref ref="DEBUG_FILE" />-->
-    <!--<appender-ref ref="INFO_FILE" />-->
-    <!--<appender-ref ref="ERROR_FILE" />-->
-    <!--<appender-ref ref="WARN_FILE" />-->
-    <!--</root>-->
-    <!--</springProfile>-->
 
 </configuration>
