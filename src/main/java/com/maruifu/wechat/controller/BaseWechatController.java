@@ -78,7 +78,6 @@ public class BaseWechatController {
     @PostMapping("/wx")
     public void processRequest(HttpServletRequest request, HttpServletResponse response) {
         logger.info("处理微信服务器发来的get请求start");
-        logger.error("处理微信服务器发来的get请求start");
 
         // 将请求、响应的编码均设置为UTF-8（防止中文乱码）
         String result = "";
