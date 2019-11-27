@@ -14,6 +14,8 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
 /**
  * @Description: $
  * @Author: XiaoMage
@@ -31,6 +33,8 @@ import org.slf4j.LoggerFactory;
  * @author pamchen-1
  *
  */
+@Scope("singleton")
+@Service("tulingApiProcess")
 public class TulingApiProcess {
     static Logger logger = LoggerFactory.getLogger(TulingApiProcess.class);
 

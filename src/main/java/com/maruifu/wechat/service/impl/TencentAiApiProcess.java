@@ -11,6 +11,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 /**
@@ -24,11 +26,8 @@ import java.io.IOException;
  */
 
 
-/**
- * 调用图灵机器人api接口，获取智能回复内容
- * @author pamchen-1
- *
- */
+@Scope("singleton")
+@Service("tencentAiApiProcess")
 public class TencentAiApiProcess {
     static Logger logger = LoggerFactory.getLogger(TencentAiApiProcess.class);
 
