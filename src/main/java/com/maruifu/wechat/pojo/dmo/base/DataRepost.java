@@ -29,4 +29,15 @@ answer	是	string	UTF-8编码，非空
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
+
+
+	@Override
+	public String toString() {
+		return "DataRepost{" +
+				"session='" + session + '\'' +
+				", answer='" + answer + '\'' +
+				'}';
+	}
 }
+
+

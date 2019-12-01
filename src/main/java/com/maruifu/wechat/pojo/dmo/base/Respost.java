@@ -70,4 +70,12 @@ public class Respost {
 		this.data = data;
 	}
 
+	@Override
+	public String toString() {
+		return "Respost{" +
+				"ret='" + ret + '\'' +
+				", msg='" + msg + '\'' +
+				", data=" + data +
+				'}';
+	}
 }

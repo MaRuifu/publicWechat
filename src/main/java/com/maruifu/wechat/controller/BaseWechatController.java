@@ -43,7 +43,6 @@ public class BaseWechatController {
     @ResponseBody
     public void checkSignature(HttpServletRequest request, HttpServletResponse response) {
         logger.info("处理微信服务器发来的get请求start");
-        logger.error("处理微信服务器发来的get请求start");
 
         //设置编码，不然接收到的消息乱码
         try {
@@ -77,8 +76,7 @@ public class BaseWechatController {
      */
     @PostMapping("/wx")
     public void processRequest(HttpServletRequest request, HttpServletResponse response) {
-        logger.info("处理微信服务器发来的get请求start");
-        logger.error("处理微信服务器发来的get请求start");
+        logger.info("处理微信服务器发来的post请求start");
 
         // 将请求、响应的编码均设置为UTF-8（防止中文乱码）
         String result = "";
@@ -89,7 +87,6 @@ public class BaseWechatController {
             result = baseWeChatService.processRequest(request);
             response.getWriter().println(result);
         } catch (Exception e) {
-            e.printStackTrace();
             logger.error("微信post 请求：{}", e);
         }
     }

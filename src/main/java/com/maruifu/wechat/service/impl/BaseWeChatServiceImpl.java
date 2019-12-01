@@ -3,6 +3,7 @@ package com.maruifu.wechat.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.maruifu.wechat.service.BaseWeChatService;
+import com.maruifu.wechat.service.TencentAiApiProcess;
 import com.maruifu.wechat.util.MessageUtil;
 import com.maruifu.wechat.util.WeChatContant;
 import org.slf4j.Logger;
@@ -33,13 +34,14 @@ import static java.util.stream.Collectors.toList;
 @Service
 public class BaseWeChatServiceImpl implements BaseWeChatService {
 
+    @Autowired
+    private TencentAiApiProcess tencentAiApiProcess;
+
     static Logger logger = LoggerFactory.getLogger(BaseWeChatService.class);
 
     @Override
     public String processRequest(HttpServletRequest request) {
 
-
-        logger.info("wx request {}", request);
         // xml格式的消息数据
         String respXml = "";
         // 默认返回的文本消息内容
@@ -57,7 +59,7 @@ public class BaseWeChatServiceImpl implements BaseWeChatService {
 
 
 //                respXml=  MessageUtil.sendTextMsg(requestMap,new TulingApiProcess().getTulingResult(requestMap.get(WeChatContant.Content)));
-                respXml=  MessageUtil.sendTextMsg(requestMap,new TencentAiApiProcess().getTencentAiResult(requestMap.get(WeChatContant.Content)));
+                respXml=  MessageUtil.sendTextMsg(requestMap,tencentAiApiProcess.getTencentAiResult(requestMap.get(WeChatContant.Content)));
 
             }
             // 图片消息

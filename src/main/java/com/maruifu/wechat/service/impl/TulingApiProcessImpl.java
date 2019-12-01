@@ -14,6 +14,8 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
 /**
  * @Description: $
  * @Author: XiaoMage
@@ -31,8 +33,10 @@ import org.slf4j.LoggerFactory;
  * @author pamchen-1
  *
  */
-public class TulingApiProcess {
-    static Logger logger = LoggerFactory.getLogger(TulingApiProcess.class);
+@Scope("singleton")
+@Service("tulingApiProcess")
+public class TulingApiProcessImpl {
+    static Logger logger = LoggerFactory.getLogger(TulingApiProcessImpl.class);
 
     /**
      * 调用图灵机器人api接口，获取智能回复内容，解析获取自己所需结果
