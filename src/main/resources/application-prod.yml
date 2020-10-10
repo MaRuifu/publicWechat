@@ -38,6 +38,6 @@ spring:
 #set logback
 logging:
   config:
-    classpath:logback-spring-pord.xml
+    classpath:logback-spring-prod.xml
 
 
