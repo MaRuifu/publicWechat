@@ -16,7 +16,7 @@ spring:
       #基本属性
       url: jdbc:mysql://localhost:3306/wechat?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
       username: root
-      password: root
+      password: Mrf12345
       #配置初始化大小/最小/最大
       initial-size: 1
       min-idle: 1
